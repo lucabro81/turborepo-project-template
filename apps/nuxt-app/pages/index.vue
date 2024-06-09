@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Card from "@repo/components/ui/card.vue";
-import Gradient from "@repo/components/ui/gradient.vue";
+// import Card from "@repo/components/@/ui/card.vue";
+// import Gradient from "@repo/components/@/ui/gradient.vue";
 
 const LINKS = [
   {
@@ -71,7 +71,7 @@ const props = defineProps<{
           </div>
 
           <div class="logoGradientContainer">
-            <Gradient class="logoGradient" :conic="true" :small="true" />
+            <!-- <Gradient class="logoGradient" :conic="true" :small="true" /> -->
           </div>
 
           <div class="logo">
@@ -84,7 +84,7 @@ const props = defineProps<{
             />
           </div>
         </div>
-        <Gradient class="backgroundGradient" conic />
+        <!-- <Gradient class="backgroundGradient" conic /> -->
         <div class="turborepoWordmarkContainer">
           <svg
             class="turborepoWordmark"
@@ -126,7 +126,7 @@ const props = defineProps<{
     </div>
 
     <div class="grid">
-      <Card
+      <!-- <Card
         v-for="{ title, href, description } in LINKS"
         class="card"
         :href="href"
@@ -134,7 +134,7 @@ const props = defineProps<{
         :title="title"
       >
         {{ description }}
-      </Card>
+      </Card> -->
     </div>
   </main>
 </template>

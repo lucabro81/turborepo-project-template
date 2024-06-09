@@ -4,7 +4,7 @@ import TailwindTypographyPlugin from "@tailwindcss/typography";
 
 const config: Config = {
   darkMode: ["class"],
-  content: ["../../packages/components/**/*.vue", "./pages/*.vue"],
+  content: ["../../packages/elements/@/**/*.{ts,tsx,vue}"],
   theme: {
     container: {
       center: true,
@@ -24,20 +24,9 @@ const config: Config = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        "primary-hover": {
-          DEFAULT: "hsl(var(--primary-hover))",
-          foreground: "hsl(var(--primary-hover-foreground))",
-        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-        },
-        "secondary-hover": {
-          DEFAULT: "hsl(var(--secondary-hover))",
-          foreground: "hsl(var(--secondary-hover-foreground))",
-        },
-        "secondary-alt-hover": {
-          DEFAULT: "hsl(var(--secondary-alt-hover))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -61,6 +50,7 @@ const config: Config = {
         },
       },
       borderRadius: {
+        xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -74,10 +64,20 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "collapsible-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-collapsible-content-height)" },
+        },
+        "collapsible-up": {
+          from: { height: "var(--radix-collapsible-content-height)" },
+          to: { height: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "collapsible-down": "collapsible-down 0.2s ease-in-out",
+        "collapsible-up": "collapsible-up 0.2s ease-in-out",
       },
     },
   },

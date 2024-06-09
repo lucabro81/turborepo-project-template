@@ -11,19 +11,28 @@ function getAbsolutePath(value) {
 }
 
 const config: StorybookConfig = {
-  stories: ["../../../packages/components/ui/*.stories.@(js|jsx|ts|tsx|mdx)"],
+  stories: [
+    // "../../../packages/ui-components/@/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+    // "../../../packages/ui-components/@/components/design/form-login/form-login.stories.ts",
+    // "../../../packages/ui-components/@/components/ui/button/button.stories.ts",
+    // "../../../packages/ui-components/button.stories.ts",
+    // "../../../packages/ui-components/button.stories.ts",
+    "../../../packages/elements/@/components/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+    // "../../../packages/ui-components/@/components/ui/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+  ],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-actions"),
+    // getAbsolutePath("@storybook/addon-actions"),
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@chromatic-com/storybook"),
     getAbsolutePath("@storybook/addon-interactions"),
-    getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-designs"),
   ],
   framework: {
     name: "@storybook/vue3-vite",
-    options: {},
+    options: {
+      docgen: "vue-component-meta",
+    },
   },
   docs: {
     autodocs: "tag",
@@ -36,7 +45,7 @@ const config: StorybookConfig = {
           path.resolve(
             path.dirname(__dirname),
             "../..",
-            "packages/components",
+            "packages/ui-components",
             "tsconfig.json"
           ),
         ],

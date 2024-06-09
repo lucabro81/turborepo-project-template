@@ -12,7 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@repo/components": "workspace:*",
+    "@repo/ui-components": "workspace:*",
     "@repo/tailwind-config": "workspace:*"
   },
   "devDependencies": {
