@@ -8,23 +8,32 @@ import { expect, fn, userEvent, within } from "@storybook/test";
 const meta: Meta<typeof FormNewPost> = {
   title: "Components/Design/Forms/NewPost",
   component: FormNewPost,
+  tags: ["autodocs"],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FormNewPost>;
-export const SubmitTest: Story = {
-  render: (arg: Props) => ({
+function setTemplate() {
+  return `
+    <FormNewPost v-bind="arg">
+      <template #actions="slotProps">
+        <FormNewPostActions v-bind="slotProps" />
+      </template>
+    </FormNewPost>
+  `;
+}
+
+function render(arg: Props) {
+  return {
     components: { FormNewPost, Button, FormNewPostActions },
     setup: () => ({ arg }),
-    template: `
-      <FormNewPost v-bind="arg">
-        <template #actions="slotProps">
-          <FormNewPostActions v-bind="slotProps" />
-        </template>
-      </FormNewPost>
-    `,
-  }),
+    template: setTemplate(),
+  };
+}
+
+type Story = StoryObj<typeof FormNewPost>;
+export const SubmitTest: Story = {
+  render,
   args: {
     onSubmit: fn(), // FIXME: action("onSubmit") break test, probably a storybook bug
   },
@@ -51,17 +60,7 @@ export const SubmitTest: Story = {
 };
 
 export const GeneralError: Story = {
-  render: (arg: Props) => ({
-    components: { FormNewPost, Button, FormNewPostActions },
-    setup: () => ({ arg }),
-    template: `
-      <FormNewPost v-bind="arg">
-        <template #actions="slotProps">
-          <FormNewPostActions v-bind="slotProps" />
-        </template>
-      </FormNewPost>
-    `,
-  }),
+  render,
   args: {
     onSubmit: () => {
       fn();
@@ -93,17 +92,7 @@ export const GeneralError: Story = {
 };
 
 export const RequiredFields: Story = {
-  render: (arg: Props) => ({
-    components: { FormNewPost, Button, FormNewPostActions },
-    setup: () => ({ arg }),
-    template: `
-      <FormNewPost v-bind="arg">
-        <template #actions="slotProps">
-          <FormNewPostActions v-bind="slotProps" />
-        </template>
-      </FormNewPost>
-    `,
-  }),
+  render,
   args: {
     onSubmit: () => {
       fn();
@@ -127,17 +116,7 @@ export const RequiredFields: Story = {
 };
 
 export const TitleTooShort: Story = {
-  render: (arg: Props) => ({
-    components: { FormNewPost, Button, FormNewPostActions },
-    setup: () => ({ arg }),
-    template: `
-      <FormNewPost v-bind="arg">
-        <template #actions="slotProps">
-          <FormNewPostActions v-bind="slotProps" />
-        </template>
-      </FormNewPost>
-    `,
-  }),
+  render,
   args: {
     onSubmit: fn(),
   },
@@ -161,17 +140,7 @@ export const TitleTooShort: Story = {
 };
 
 export const TextTooShort: Story = {
-  render: (arg: Props) => ({
-    components: { FormNewPost, Button, FormNewPostActions },
-    setup: () => ({ arg }),
-    template: `
-      <FormNewPost v-bind="arg">
-        <template #actions="slotProps">
-          <FormNewPostActions v-bind="slotProps" />
-        </template>
-      </FormNewPost>
-    `,
-  }),
+  render,
   args: {
     onSubmit: fn(),
   },
