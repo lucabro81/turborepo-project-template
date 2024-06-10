@@ -9,6 +9,10 @@
     "preview": "vite preview"
   },
   "exports": {
+    "./design": {
+      "import": "./@/components/design/mod.ts",
+      "require": "./@/components/design/mod.ts"
+    },
     "./utils": {
       "import": "./@/lib/utils.ts",
       "require": "./@/lib/utils.ts"
