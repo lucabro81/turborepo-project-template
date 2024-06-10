@@ -1,7 +1,7 @@
 import type { PlayFunctionContext } from "@storybook/types";
 import type { Meta, StoryObj, VueRenderer } from "@storybook/vue3";
 import { FormNewPost, FormNewPostActions } from "./mod";
-import { type Props, type FormValues } from "./types";
+import { type Props } from "./types";
 import { Button } from "@/components/ui/button";
 import { expect, fn, userEvent, within } from "@storybook/test";
 
@@ -32,6 +32,7 @@ function render(arg: Props) {
 }
 
 type Story = StoryObj<typeof FormNewPost>;
+
 export const SubmitTest: Story = {
   render,
   args: {
@@ -67,10 +68,7 @@ export const GeneralError: Story = {
       throw new Error("Server Error: you're fu**ed, yell to the backend guys");
     },
   },
-  play: async ({
-    canvasElement,
-    args,
-  }: PlayFunctionContext<VueRenderer, Props>) => {
+  play: async ({ canvasElement }: PlayFunctionContext<VueRenderer, Props>) => {
     const canvas = within(canvasElement);
     const submitButton = canvas.getByTestId("save-post");
     const title = canvas.getByTestId("title-input");
@@ -99,10 +97,7 @@ export const RequiredFields: Story = {
       throw new Error("Server Error: you're fu**ed, yell to the backend guys");
     },
   },
-  play: async ({
-    canvasElement,
-    args,
-  }: PlayFunctionContext<VueRenderer, Props>) => {
+  play: async ({ canvasElement }: PlayFunctionContext<VueRenderer, Props>) => {
     const canvas = within(canvasElement);
     const submitButton = canvas.getByTestId("save-post");
     const title = canvas.getByTestId("title-input");
@@ -120,10 +115,7 @@ export const TitleTooShort: Story = {
   args: {
     onSubmit: fn(),
   },
-  play: async ({
-    canvasElement,
-    args,
-  }: PlayFunctionContext<VueRenderer, Props>) => {
+  play: async ({ canvasElement }: PlayFunctionContext<VueRenderer, Props>) => {
     const canvas = within(canvasElement);
     const submitButton = canvas.getByTestId("save-post");
     const title = canvas.getByTestId("title-input");
@@ -144,10 +136,7 @@ export const TextTooShort: Story = {
   args: {
     onSubmit: fn(),
   },
-  play: async ({
-    canvasElement,
-    args,
-  }: PlayFunctionContext<VueRenderer, Props>) => {
+  play: async ({ canvasElement }: PlayFunctionContext<VueRenderer, Props>) => {
     const canvas = within(canvasElement);
     const submitButton = canvas.getByTestId("save-post");
     const title = canvas.getByTestId("title-input");
