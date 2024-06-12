@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { FormLogin, FormLoginActions } from "@repo/elements/design";
 
-const props = defineProps<{
-  appName: string;
-}>();
-
 const route = useRouter();
 
 const onSubmit = () => {

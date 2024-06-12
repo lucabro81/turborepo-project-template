@@ -13,11 +13,13 @@
   "dependencies": {
     "@repo/elements": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
+    "lucide-vue-next": "^0.390.0",
     "vite-tsconfig-paths": "^4.3.2",
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
+    "@playwright/test": "^1.44.1",
     "@storybook/addon-actions": "^8.1.5",
     "@storybook/addon-designs": "^8.0.1",
     "@storybook/addon-docs": "^8.1.5",
@@ -33,7 +35,6 @@
     "@storybook/vue3-vite": "^8.1.5",
     "@tailwindcss/typography": "^0.5.12",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@playwright/test": "^1.44.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "storybook": "^8.1.5",
