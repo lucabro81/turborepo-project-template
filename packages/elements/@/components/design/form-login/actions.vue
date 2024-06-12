@@ -10,7 +10,7 @@ const props = defineProps<{
 const isValid = useIsFormValid(props.form);
 </script>
 <template>
-  <div class="flex space-x-2 justify-end">
+  <div class="flex justify-end mt-4">
     <Button :disabled="!isValid" data-testid="login-btn">Login</Button>
   </div>
 </template>

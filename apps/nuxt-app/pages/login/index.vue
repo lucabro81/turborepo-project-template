@@ -13,12 +13,11 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <h1 class="p-4 text-lg font-extrabold">Nuxt Test App</h1>
-  <main class="p-4">
-    <FormLogin @submit="onSubmit">
+  <div class="h-full w-full flex items-center justify-center">
+    <FormLogin class="w-1/3 min-w-96" @submit="onSubmit">
       <template #actions="slotProps">
         <FormLoginActions v-bind="slotProps"></FormLoginActions>
       </template>
     </FormLogin>
-  </main>
+  </div>
 </template>

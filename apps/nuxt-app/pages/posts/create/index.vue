@@ -14,7 +14,6 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <h1 class="p-4 text-lg font-extrabold">Nuxt Test App</h1>
   <main class="p-4">
     <FormNewPost @submit="onSubmit">
       <template #actions="slotProps">
