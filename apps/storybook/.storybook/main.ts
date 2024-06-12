@@ -12,14 +12,8 @@ function getAbsolutePath(value) {
 
 const config: StorybookConfig = {
   stories: [
-    // "../../../packages/ui-components/@/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-    // "../../../packages/ui-components/@/components/design/form-login/form-login.stories.ts",
-    // "../../../packages/ui-components/@/components/ui/button/button.stories.ts",
-    // "../../../packages/ui-components/button.stories.ts",
-    // "../../../packages/ui-components/button.stories.ts",
     "../../../packages/elements/@/components/ui/**/*.stories.@(js|jsx|ts|tsx|mdx)",
     "../../../packages/elements/@/components/design/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-    // "../../../packages/ui-components/@/components/ui/**/*.stories.@(js|jsx|ts|tsx|mdx)",
   ],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
@@ -46,7 +40,7 @@ const config: StorybookConfig = {
           path.resolve(
             path.dirname(__dirname),
             "../..",
-            "packages/ui-components",
+            "packages/elements",
             "tsconfig.json"
           ),
         ],

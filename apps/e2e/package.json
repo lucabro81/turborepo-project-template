@@ -1,0 +1,21 @@
+{
+  "name": "e2e-test-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "exec playwright test",
+    "test:ui": "exec playwright test --ui",
+    "test:chromium": "exec playwright test --project=chromium",
+    "test:debug": "exec playwright test --debug",
+    "test:codegen": "exec playwright codegen",
+    "test:report": "exec playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.14.2"
+  }
+}

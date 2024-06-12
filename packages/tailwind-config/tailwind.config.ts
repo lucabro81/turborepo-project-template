@@ -4,7 +4,11 @@ import TailwindTypographyPlugin from "@tailwindcss/typography";
 
 const config: Config = {
   darkMode: ["class"],
-  content: ["../../packages/elements/@/**/*.{ts,tsx,vue}"],
+  content: [
+    "../../packages/elements/@/**/*.{ts,tsx,vue}",
+    "../../apps/nuxt-app/pages/**/*.{ts,tsx,vue}",
+    "../../apps/nuxt-app/layouts/**/*.{ts,tsx,vue}",
+  ],
   theme: {
     container: {
       center: true,
