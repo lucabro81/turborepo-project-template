@@ -20,6 +20,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@playwright/test": "^1.44.1",
     "eslint": "^8.57.0",
     "eslint-config-custom": "workspace:*",
     "nuxt": "^3.10.3",
