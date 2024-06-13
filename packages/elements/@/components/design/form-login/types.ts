@@ -4,8 +4,9 @@ export const ZodFormSchema = z.object({
   password: z.string().min(8),
   global: z.string(),
 });
-export type FormValues = z.infer<typeof ZodFormSchema>;
+type FormValuesFormSchema = z.infer<typeof ZodFormSchema>;
+export type FormValues = Pick<FormValuesFormSchema, "email" | "password">;
 
 export interface Props {
-  onSubmit: (values: FormValues) => void;
+  onSubmit: (values: Pick<FormValues, "email" | "password">) => void;
 }

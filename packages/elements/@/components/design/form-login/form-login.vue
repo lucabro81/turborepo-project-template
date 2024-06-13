@@ -21,9 +21,9 @@ const form = useForm({
 
 form.setFieldValue("global", "hidden");
 
-const onSubmit = form.handleSubmit(async (values) => {
+const onSubmit = form.handleSubmit(async ({ email, password }) => {
   try {
-    await props.onSubmit(values);
+    await props.onSubmit({ email, password });
   } catch (error) {
     const msg = error instanceof Error ? error.message : "unknown error";
     form.setFieldError("global", msg);

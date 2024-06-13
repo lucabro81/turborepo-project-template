@@ -25,7 +25,7 @@
     "eslint": "^8.57.0",
     "eslint-config-custom": "workspace:*",
     "nuxt": "^3.10.3",
-    "tsconfig": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   }
