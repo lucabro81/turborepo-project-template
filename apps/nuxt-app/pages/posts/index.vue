@@ -1,2 +1,6 @@
-<template>ciao</template>
-<script setup lang="ts"></script>
+<template>
+  <div class="h-full w-full flex flex-col"></div>
+</template>
+<script setup lang="ts">
+const [user] = useUser();
+</script>

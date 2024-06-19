@@ -41,7 +41,7 @@ export function setTemplateWithIcon(
     }),
     template: `
       <div class="space-x-2">
-        <Button v-for="size in sizes" v-bind="$args" :variant="args.variant" :size="size.value" :loading="args.loading" :disabled="args.disabled"><template #icon><LayoutDashboard class="w-4 h-4" /></template>{{size.label}}</Button>
+        <Button v-for="size in sizes" v-bind="$args" :variant="args.variant" :size="size.value" :loading="args.loading" :disabled="args.disabled"><template #icon><LayoutDashboard /></template>{{size.label}}</Button>
       </div>
     `,
   };

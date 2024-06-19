@@ -11,6 +11,11 @@ const isValid = useIsFormValid(props.form);
 </script>
 <template>
   <div class="flex justify-end mt-4">
-    <Button :disabled="!isValid" data-testid="login-btn">Login</Button>
+    <Button
+      :disabled="!isValid"
+      data-testid="login-btn"
+      :loading="props.form.isSubmitting.value"
+      >Login</Button
+    >
   </div>
 </template>

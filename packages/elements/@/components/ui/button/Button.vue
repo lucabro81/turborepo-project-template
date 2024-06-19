@@ -23,12 +23,18 @@ const props = withDefaults(defineProps<Props>(), {
     :as-child="asChild"
     :class="cn(buttonVariants({ variant, size }), props.class)"
   >
-    <span className="mr-2 w-4 h-4" v-if="$slots.icon && size !== 'icon'"
-      ><slot name="icon" class="mr-2"
+    <span className="mr-2 w-4 h-4 icon" v-if="$slots.icon && size !== 'icon'"
+      ><slot name="icon"
     /></span>
-    <slot />
+    <span :class="cn({ icon: size === 'icon' })"><slot /></span>
+
     <span className="ml-2" v-if="loading && size !== 'icon'"
-      ><LoaderCircle class="w-4 h-4 animate-spin"
-    /></span>
+      ><LoaderCircle class="w-4 h-4 animate-spin" />
+    </span>
   </Primitive>
 </template>
+<style lang="css">
+.icon svg {
+  @apply w-4 h-4;
+}
+</style>

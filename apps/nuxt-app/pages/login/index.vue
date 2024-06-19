@@ -1,21 +1,3 @@
-<script setup lang="ts">
-import {
-  FormLogin,
-  FormLoginActions,
-  type FormLoginValues,
-} from "@repo/elements/design";
-
-const route = useRouter();
-
-const onSubmit = (values: FormLoginValues) => {
-  if (values.email === "admin@test.it" && values.password === "12345678") {
-    route.push("/posts");
-  } else {
-    throw new Error("Error: Invalid username or password");
-  }
-};
-</script>
-
 <template>
   <div class="h-full w-full flex flex-col items-center justify-center">
     <h2 data-testId="login-title" class="text-lg font-bold mb-12">Login</h2>
@@ -24,5 +6,43 @@ const onSubmit = (values: FormLoginValues) => {
         <FormLoginActions v-bind="slotProps"></FormLoginActions>
       </template>
     </FormLogin>
+    <Toaster />
   </div>
 </template>
+
+<script setup lang="ts">
+import { Toaster } from "@/components/ui/toast";
+import {
+  FormLogin,
+  FormLoginActions,
+  type FormLoginValues,
+} from "@repo/elements/design";
+
+const route = useRouter();
+const [, setUser] = useUser();
+
+const onSubmit = async (values: FormLoginValues) => {
+  //   const { error } = await useLogin(values);
+
+  //   if (error) {
+  //     toast({
+  //       title: "Error",
+  //       description: error,
+  //       variant: "destructive",
+  //     });
+  //   } else {
+  //     route.push("/posts");
+  //   }
+
+  try {
+    const data = await $fetch<User>("/api/login", {
+      method: "POST",
+      body: values,
+    });
+    setUser(data);
+    route.push("/posts");
+  } catch (error) {
+    throw new Error("Error: invalid username or password");
+  }
+};
+</script>

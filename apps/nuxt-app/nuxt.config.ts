@@ -7,6 +7,11 @@ import autoprefixer from "autoprefixer";
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
+  runtimeConfig: {
+    public: {
+      apiBase: "/api",
+    },
+  },
   vite: {
     css: {
       postcss: {
